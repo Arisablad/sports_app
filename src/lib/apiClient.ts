@@ -5,7 +5,8 @@ const apiClient = axios.create({
     // withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
-        'X-Auth-Token': "_0da65c2c51704543b3aa8242cf1a65e2"
+        'X-RapidAPI-Key': `${import.meta.env.VITE_RAPID_API_KEY}`,
+        'X-RapidAPI-Host': `${import.meta.env.VITE_RAPID_API_HOST}`
     }
 });
 
