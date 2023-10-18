@@ -1,4 +1,5 @@
 import GlobalLayout from "@/containers/GlobalLayout.tsx";
+import AllEvents from "@/components/events/AllEvents.tsx";
 
 
 function Home() {
@@ -9,7 +10,8 @@ function Home() {
                Leagues Will Be Here asssssssssssssssssss
            </div>
            <div className={"bg-green-600 p-2"}>
-               Matches Will go here
+               {/*Matches*/}
+               <AllEvents />
            </div>
            {/*<div className={"bg-green-800"}>Xd2</div>*/}
        </div>
