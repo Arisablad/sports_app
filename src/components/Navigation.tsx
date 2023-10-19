@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Navigation = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
   return (
     <div className="flex flex-wrap place-items-center">
       <section className="relative mx-auto">
@@ -49,7 +52,13 @@ const Navigation = () => {
           {/*    <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>*/}
           {/*  </span>*/}
           {/*</a>*/}
-          <a className="navbar-burger self-center mr-12 xl:hidden" href="#">
+
+          {/*Hamburger Menu*/}
+
+          <span
+            className="navbar-burger self-center mr-12 md:hidden"
+            onClick={() => setShowMobileMenu((prevState) => !prevState)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 hover:text-gray-200"
@@ -64,9 +73,29 @@ const Navigation = () => {
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
-          </a>
+          </span>
         </nav>
       </section>
+
+      {/*Mobile Menu*/}
+
+      {showMobileMenu && (
+        <div
+          className={
+            "flex flex-col gap-4 bg-[#111111] h-screen w-screen md:hidden p-4 z-30"
+          }
+        >
+          <Link
+            className={
+              "hover:text-gray-200 text-white w-full text-center p-8 bg-[#333333] rounded-md transition duration-300 text-xl font-semibold"
+            }
+            to="#"
+            onClick={() => setShowMobileMenu(false)}
+          >
+            Home
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

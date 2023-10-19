@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div
       className={
-        "absolute bottom-0 bg-gray-900 py-0.5 w-full text-white text-center"
+        "fixed bottom-0 bg-gray-900 py-0.5 w-full text-white text-center"
       }
     >
       <Link

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import NewsService from "@/services/NewsService.tsx";
 import { AxiosError } from "axios";
 import { TNews } from "@/types/NewsTypes.ts";
+import { Link } from "react-router-dom";
+import LoadingSpinner from "@/components/Spinner.tsx";
 
 function News() {
   const [news, setNews] = useState<Record<string, never> | TNews>({});
@@ -10,8 +12,11 @@ function News() {
   useEffect(() => {
     getAllNews()
       .then((response: any) => {
-        console.log(response);
-        setNews(response);
+        // console.log(response);
+        // setNews(response);
+        setTimeout(() => {
+          setNews(response);
+        }, 2000);
       })
       .catch((error: AxiosError) => {
         console.log(error);
@@ -32,13 +37,15 @@ function News() {
       {/*NEWS*/}
       <div className={"w-full h-full p-2 flex flex-col gap-4"}>
         {news &&
-          Object.keys(news).length > 0 &&
-          news.featuredArticles.length > 0 &&
+        Object.keys(news).length > 0 &&
+        news.featuredArticles.length > 0 ? (
           news.featuredArticles.map((article) => {
             return (
-              <div
+              <Link
                 key={article.id}
                 className={`rounded-md text-white flex justify-center flex-col w-full cursor-pointer pointer relative hover:scale-105 transition duration-300`}
+                to={`https://www.livescore.com/${article.url}`}
+                target={"_blank"}
               >
                 <img
                   src={article.mainMedia[0].gallery.url}
@@ -55,9 +62,12 @@ function News() {
                 >
                   {article.title}
                 </div>
-              </div>
+              </Link>
             );
-          })}
+          })
+        ) : (
+          <LoadingSpinner />
+        )}
       </div>
     </div>
   );
