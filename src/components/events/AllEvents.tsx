@@ -50,7 +50,7 @@ function AllEvents() {
               </div>
               <div
                 className={
-                  "bg-[#333333] rounded-md text-white flex justify-center flex-col w-full px-2 hover:bg-[#333333]/30 cursor-pointer pointer"
+                  "bg-[#333333] rounded-md text-white flex justify-center flex-col w-full px-2 hover:bg-[#333333]/30 transition duration-300 cursor-pointer pointer"
                 }
               >
                 {event.T1.map((team) => (
