@@ -1,3 +1,4 @@
+// @ts-ignore
 import apiClient from "@/lib/apiClient.ts";
 import allEvents from "@/mocks/allEvents.ts";
 

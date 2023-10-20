@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import apiClient from "@/lib/apiClient.ts";
 import { allNews } from "@/mocks/allNews.ts";
 

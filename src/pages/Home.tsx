@@ -3,7 +3,7 @@ import AllEvents from "@/components/events/AllEvents.tsx";
 import News from "@/components/News.tsx";
 import { useToast } from "@/components/ui/use-toast.ts";
 import { useEffect } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
+import Leagues from "@/components/Leagues.tsx";
 
 function Home() {
   const { toast } = useToast();
@@ -22,7 +22,7 @@ function Home() {
     <GlobalLayout>
       <div
         className={
-          "grid md:grid-cols-[200px_minmax(400px,_1fr)300px] gap-2 py-4 h-full"
+          "grid md:grid-cols-[200px_minmax(400px,_1fr)300px] gap-2 py-4 h-full min-h-screen"
         }
       >
         <div
@@ -30,9 +30,7 @@ function Home() {
             "hidden bg-[#111111] p-2 md:flex border border-solid border-[#222222] text-white rounded-lg flex flex-col gap-4 h-fit"
           }
         >
-          {Array.from({ length: 20 }).map((_, i) => (
-            <Skeleton key={i} className={"w-full h-8"} />
-          ))}
+          <Leagues />
         </div>
         <div
           className={
