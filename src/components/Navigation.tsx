@@ -5,9 +5,9 @@ const Navigation = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <div className="flex flex-wrap place-items-center">
-      <section className="relative mx-auto">
-        <nav className="flex justify-between bg-gray-900 text-white w-screen">
+    <div className="flex flex-wrap place-items-center fixed z-30">
+      <section className="relative mx-auto ">
+        <nav className="flex justify-between bg-gray-900 text-white w-screen  backdrop-blur-xl backdrop-filter bg-opacity-90 border-b border-gray-700">
           <div className="py-6 flex w-full items-center">
             <Link className="text-3xl font-bold font-heading px-8" to="#">
               ArisabladScore
