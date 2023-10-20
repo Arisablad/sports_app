@@ -14,7 +14,7 @@ function Leagues() {
 
   const [expandedLeagues, setExpandedLeagues] = useState([] as string[]);
   const [inputValue, setInputValue] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const filteredLeagues = useMemo(() => {
     if (inputValue === "") {
@@ -43,14 +43,15 @@ function Leagues() {
         console.log(response);
         setTimeout(() => {
           setLeagues(response);
+          setLoading(false);
         }, 1000);
       })
       .catch((error: AxiosError) => {
         console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
       });
+    // .finally(() => {
+    //   setLoading(false);
+    // });
   }, []);
 
   return (
