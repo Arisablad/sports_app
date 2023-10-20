@@ -3,17 +3,18 @@ import { useEffect, useState } from "react";
 import { AxiosError } from "axios";
 import { Skeleton } from "@/components/ui/skeleton.tsx";
 import { ArrowDown, ArrowUp } from "lucide-react";
+import { TLeagues } from "@/types/LeaguesTypes.ts";
 
 function Leagues() {
   const { getAllLeagues } = LeaguesService();
-  const [leagues, setLeagues] = useState([]);
+  const [leagues, setLeagues] = useState<TLeagues[] | []>([]);
   const fallbackSrc =
     "https://static.vecteezy.com/system/resources/previews/002/486/569/non_2x/404-error-icon-vector.jpg";
 
-  const [expandedLeagues, setExpandedLeagues] = useState([]);
+  const [expandedLeagues, setExpandedLeagues] = useState([] as string[]);
 
-  const ExpandLeagues = (id) => {
-    setExpandedLeagues((prev) => {
+  const ExpandLeagues = (id: string) => {
+    setExpandedLeagues((prev): string[] | [] => {
       if (prev.includes(id)) {
         return prev.filter((item) => item !== id);
       } else {
@@ -55,8 +56,8 @@ function Leagues() {
                 <img
                   src={`https://static.livescore.com/i2/fh/${league.Ccd}.jpg`}
                   onError={(e) => {
-                    e.target.onError = null;
-                    e.target.src = fallbackSrc;
+                    (e.target as any).onError = null;
+                    (e.target as HTMLImageElement).src = fallbackSrc;
                   }}
                   loading="lazy"
                   className={"h-4 w-6"}
@@ -94,8 +95,8 @@ function Leagues() {
                         <img
                           src={`https://static.livescore.com/i2/fh/${league.Ccd}.jpg`}
                           onError={(e) => {
-                            e.target.onError = null;
-                            e.target.src = fallbackSrc;
+                            (e.target as any).onError = null;
+                            (e.target as HTMLImageElement).src = fallbackSrc;
                           }}
                           loading="lazy"
                           className={"h-4 w-6"}
