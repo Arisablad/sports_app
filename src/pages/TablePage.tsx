@@ -1,24 +1,10 @@
 import GlobalLayout from "@/containers/GlobalLayout.tsx";
-import AllEvents from "@/components/events/AllEvents.tsx";
 import News from "@/components/News.tsx";
 import { useToast } from "@/components/ui/use-toast.ts";
-import { useEffect } from "react";
 import Leagues from "@/components/Leagues.tsx";
+import Table from "@/components/Table.tsx";
 
-function Home() {
-  const { toast } = useToast();
-
-  useEffect(() => {
-    toast({
-      title: "Data Fetch",
-      description:
-        "Currently data is fetched from mock. Cause API is paid. Suggest to press Polish league table, cause of complete mock",
-      open: true,
-      duration: 7000,
-      variant: "destructive",
-    });
-  }, []);
-
+function TablePage() {
   return (
     <GlobalLayout>
       <div
@@ -39,7 +25,7 @@ function Home() {
           }
         >
           {/*Matches*/}
-          <AllEvents />
+          <Table />
         </div>
         <div
           className={
@@ -54,4 +40,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default TablePage;

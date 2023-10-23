@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import EventsService from "@/services/EventsService.tsx";
 import { AxiosError } from "axios";
 import { TEventObject } from "@/types/EventsTypes.tsx";
 import { splitDate } from "@/lib/utils.ts";
 import LoadingSpinner from "@/components/Spinner.tsx";
+import { Link } from "react-router-dom";
 
 function AllEvents() {
   const { getAllEvents } = EventsService();
@@ -12,7 +13,6 @@ function AllEvents() {
   useEffect(() => {
     getAllEvents()
       .then((response: any) => {
-        console.log(response);
         setTimeout(() => {
           setEvents(response.data);
         }, 1500);
@@ -40,8 +40,22 @@ function AllEvents() {
                   className={"w-6 h-4"}
                 />
               </div>
-              <div className={"w-full px-2 md:px-1"}>
-                {match.Cnm} - {match.Sdn}
+              <div
+                className={
+                  "w-full px-2 md:px-1 flex justify-between items-center"
+                }
+              >
+                <div>
+                  {match.Cnm} - {match.Sdn}
+                </div>
+                <Link
+                  className={
+                    "px-2 text-blue-300 cursor-pointer hover:text-blue-500 transition duration-300"
+                  }
+                  to={"/table/" + match.CompId}
+                >
+                  Table
+                </Link>
               </div>
             </div>
             {match.Events.map((event) => (

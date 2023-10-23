@@ -9,14 +9,14 @@ const Navigation = () => {
       <section className="relative mx-auto ">
         <nav className="flex justify-between bg-gray-900 text-white w-screen  backdrop-blur-xl backdrop-filter bg-opacity-90 border-b border-gray-700">
           <div className="py-6 flex w-full items-center">
-            <Link className="text-3xl font-bold font-heading px-8" to="#">
+            <Link className="text-3xl font-bold font-heading px-8" to="/">
               ArisabladScore
               <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
             </Link>
 
             <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
               <li>
-                <Link className="hover:text-gray-200" to="#">
+                <Link className="hover:text-gray-200" to="/">
                   Home
                 </Link>
               </li>

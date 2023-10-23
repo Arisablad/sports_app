@@ -5,6 +5,8 @@ import { Skeleton } from "@/components/ui/skeleton.tsx";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import { TLeagues } from "@/types/LeaguesTypes.ts";
 import { Input } from "@/components/ui/input.tsx";
+import { Navigate, useNavigate } from "react-router-dom";
+import navigation from "@/components/Navigation.tsx";
 
 function Leagues() {
   const { getAllLeagues } = LeaguesService();
@@ -15,6 +17,7 @@ function Leagues() {
   const [expandedLeagues, setExpandedLeagues] = useState([] as string[]);
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const filteredLeagues = useMemo(() => {
     if (inputValue === "") {
@@ -40,7 +43,6 @@ function Leagues() {
     setLoading(true);
     getAllLeagues()
       .then((response: any) => {
-        console.log(response);
         setTimeout(() => {
           setLeagues(response);
           setLoading(false);
@@ -122,6 +124,7 @@ function Leagues() {
                       className={
                         "bg-[#333333] text-white rounded-sm py-1.5 px-4 font-sans font-medium flex items-center gap-4 hover:bg-[#333333]/60 transition duration-300"
                       }
+                      onClick={() => navigate("/table/368")}
                     >
                       <img
                         src={`https://static.livescore.com/i2/fh/${league.Ccd}.jpg`}
