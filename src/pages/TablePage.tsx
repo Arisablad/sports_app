@@ -1,6 +1,5 @@
 import GlobalLayout from "@/containers/GlobalLayout.tsx";
 import News from "@/components/News.tsx";
-import { useToast } from "@/components/ui/use-toast.ts";
 import Leagues from "@/components/Leagues.tsx";
 import Table from "@/components/Table.tsx";
 

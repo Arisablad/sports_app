@@ -12,7 +12,6 @@ import { useParams } from "react-router-dom";
 import { AxiosError } from "axios";
 import { Button } from "@/components/ui/button.tsx";
 import LoadingSpinner from "@/components/Spinner.tsx";
-import { Skeleton } from "@/components/ui/skeleton.tsx";
 import { cn } from "@/lib/utils.ts";
 
 const Buttons = [
@@ -23,7 +22,7 @@ const Buttons = [
 
 function Table() {
   const [tableFrom, setTableFrom] = useState<number>(0);
-  let { leagueId } = useParams();
+  const { leagueId } = useParams();
   const { getTableInfo } = TablesService();
   const [tableData, setTableData] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(false);

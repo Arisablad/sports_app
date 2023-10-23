@@ -5,8 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton.tsx";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import { TLeagues } from "@/types/LeaguesTypes.ts";
 import { Input } from "@/components/ui/input.tsx";
-import { Navigate, useNavigate } from "react-router-dom";
-import navigation from "@/components/Navigation.tsx";
+import { useNavigate } from "react-router-dom";
 
 function Leagues() {
   const { getAllLeagues } = LeaguesService();
