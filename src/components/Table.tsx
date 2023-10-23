@@ -46,7 +46,7 @@ function Table() {
   }, []);
 
   return (
-    <TableUI className={"min-h-[500px]"}>
+    <TableUI className={"min-h-[500px] overflow-x-auto"}>
       <TableHeader>
         <TableRow className={"p-1.5 hover:bg-transparent"}>
           <TableHead className={"flex gap-4"}>

@@ -20,7 +20,7 @@ function TablePage() {
         </div>
         <div
           className={
-            "p-2 border border-solid border-[#222222] rounded-lg h-max"
+            "p-2 border border-solid border-[#222222] rounded-lg h-max overflow-x-auto"
           }
         >
           {/*Matches*/}
